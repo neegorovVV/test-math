@@ -49,7 +49,7 @@ long long divide(int a, int b, bool& error) {
 }
 
 
-long long power(int base, int exp, bool& error) {
+long long exponentiation(int base, int exp, bool& error) {
     long long result = 1;
     for (int i = 0; i < exp; i++) {
         if (result > LLONG_MAX / base) {
