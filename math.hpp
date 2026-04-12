@@ -41,17 +41,38 @@ long long multiply(int a, int b, bool& error) {
 
 
 long long divide(int a, int b, bool& error) {
-    if (b == 0) {
+    if (b == 0) 
+    {
         error = true;
         return 0;
     }
+
+    if (a == INT_MIN && b == -1) 
+    {
+        error = true;
+        return 0;
+    }
+    
     return a / b;
 }
 
 
 long long exponentiation(int base, int exp, bool& error) {
+
     long long result = 1;
+
+    if(base == 0)
+    {
+        return 0;
+    }
+
+    if(base == 0 && exp == 0)
+    {   
+        return 1;
+    }
+
     for (int i = 0; i < exp; i++) {
+
         if (result > LLONG_MAX / base) {
             error = true;
             return 0;
@@ -62,24 +83,34 @@ long long exponentiation(int base, int exp, bool& error) {
 }
 
 
-long long factorial(int n, bool& error) {
-    if (n < 0) {
+long long factorial(int a, bool& error)
+{   
+    if (a < 0)
+    {
         error = true;
         return 0;
     }
-    if (n <= 1) return 1;
     
-    long long result = 1;
-    for (int i = 2; i <= n; i++) {
-        if (result > LLONG_MAX / i) {
-            error = true;
-            return 0;
-        }
-        result *= i;
+    if (a <= 1)
+    {
+        return 1;
     }
-    return result;
-}
+    
+    long long result = factorial(a - 1, error);
+    
+    if (error)
+    {
+        return 0;
+    }
+    
+    if (result > LLONG_MAX / a)
+    {
+        error = true;
+        return 0;
+    }
 
+    return a * result;
 }
 
 #endif
+
