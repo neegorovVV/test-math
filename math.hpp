@@ -112,5 +112,6 @@ long long factorial(int a, bool& error)
     return a * result;
 }
 
+}
 #endif
 
