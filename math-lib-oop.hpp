@@ -3,8 +3,8 @@
 #include <climits>
 #include <stdexcept>
 
-namespace mathoop {
-
+namespace mathoop 
+{
 
 long long add(int a, int b) 
 {
@@ -97,7 +97,7 @@ long long factorial(int base)
 
         
     return base * result;
-
 }
 
+          }
 
