@@ -6,7 +6,7 @@
 namespace mathoop 
 {
 
-long long add(int a, int b) 
+inline long long add(int a, int b) 
 {
   if ((a > 0 && b > 0 && a > INT_MAX  - b) || (a < 0 && b < 0 && a < INT_MIN - b))     
          throw std::runtime_error("Overflow error during add operation");
@@ -17,7 +17,7 @@ long long add(int a, int b)
 }
 
 
-long long subtract(int a, int b) 
+inline long long subtract(int a, int b) 
 {
       if ((b > 0 && a < INT_MIN + b) || (b < 0 && a > INT_MAX  + b))
         throw std::runtime_error("Overflow error during subtract operation");
@@ -27,7 +27,7 @@ long long subtract(int a, int b)
 }
 
 
-long long multiply(int a, int b)
+inline long long multiply(int a, int b)
 {
       if (a != 0 && b != 0) 
     {
@@ -43,7 +43,7 @@ long long multiply(int a, int b)
 }
 
 
-long long divide(int a, int b) 
+inline long long divide(int a, int b) 
 {
      if(b == 0)
         throw std::runtime_error("Error: Divison by zero");
@@ -57,7 +57,7 @@ long long divide(int a, int b)
 }
 
 
-long long exponentiation(int base, int exp)
+inline long long exponentiation(int base, int exp)
 {
 
     long long result = 1;
@@ -83,7 +83,7 @@ long long exponentiation(int base, int exp)
 }
 
 
-long long factorial(int base)
+inline long long factorial(int base)
 {   
    if(base < 0)
         throw std::runtime_error("Error: negative factorail base");
